@@ -40,13 +40,6 @@
 
 	function corps_accueil() { 
 
-		require('connexion.php');
-
-		$articles = $bdd->prepare('SELECT titre, contenu FROM actualite.article');
-		$articles->execute();
-
-		$result = $articles->fetchAll(PDO::FETCH_ASSOC);
-
 		?>
 		
 			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
@@ -54,14 +47,8 @@
 			<h1>Les dernières actualités</h1>
 
 			<?php
-				foreach ($result as $row) {
-				?>
-					<div class="paragraphe">
-						<h2><?=$row['titre'];?></h2>
-						<p><?=$row['contenu'];?></p>
-					</div>
-				<?php
-				}
+				require('contenu.php');
+				contenu_par_requete('SELECT titre, contenu FROM actualite.article');
 			?>
 		
 		<?php
@@ -70,14 +57,6 @@
 
 	function corps_sport() { 
 
-		require('connexion.php');
-
-		$articles = $bdd->prepare("SELECT titre, contenu FROM Article WHERE categorie = (SELECT id FROM Categorie WHERE libelle = 'Sport');
-		");
-		$articles->execute();
-
-		$result = $articles->fetchAll(PDO::FETCH_ASSOC);
-
 		?>
 		
 			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
@@ -85,14 +64,9 @@
 			<h1>Les actualités du Sport</h1>
 
 			<?php
-				foreach ($result as $row) {
-				?>
-					<div class="paragraphe">
-						<h2><?=$row['titre'];?></h2>
-						<p><?=$row['contenu'];?></p>
-					</div>
-				<?php
-				}
+				require('contenu.php');
+				contenu_par_requete("SELECT titre, contenu FROM Article
+									WHERE categorie = (SELECT id FROM Categorie WHERE libelle = 'Sport');");
 			?>
 		
 		<?php
@@ -101,16 +75,6 @@
 
 	function corps_sante() { 
 
-		require('connexion.php');
-
-		$articles = $bdd->prepare("SELECT a.*
-										FROM Article AS a
-										JOIN Categorie AS c ON a.categorie = c.id
-										WHERE c.libelle = 'Sante';");
-		$articles->execute();
-
-		$result = $articles->fetchAll(PDO::FETCH_ASSOC);
-
 		?>
 		
 			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
@@ -118,14 +82,11 @@
 			<h1>Les actualités de la Santé</h1>
 
 			<?php
-				foreach ($result as $row) {
-				?>
-					<div class="paragraphe">
-						<h2><?=$row['titre'];?></h2>
-						<p><?=$row['contenu'];?></p>
-					</div>
-				<?php
-				}
+				require('contenu.php');
+				contenu_par_requete("SELECT a.*
+									FROM Article AS a
+									JOIN Categorie AS c ON a.categorie = c.id
+									WHERE c.libelle = 'Sante';");
 			?>
 		
 		<?php
@@ -135,16 +96,6 @@
 
 	function corps_education() { 
 
-		require('connexion.php');
-
-		$articles = $bdd->prepare("SELECT titre, contenu
-										FROM Article AS a
-										JOIN Categorie AS c ON a.categorie = c.id
-										WHERE c.libelle = 'Education';");
-		$articles->execute();
-
-		$result = $articles->fetchAll(PDO::FETCH_ASSOC);
-
 		?>
 		
 			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
@@ -152,14 +103,11 @@
 			<h1>Les actualités de l'Education</h1>
 
 			<?php
-				foreach ($result as $row) {
-				?>
-					<div class="paragraphe">
-						<h2><?=$row['titre'];?></h2>
-						<p><?=$row['contenu'];?></p>
-					</div>
-				<?php
-				}
+				require('contenu.php');
+				contenu_par_requete("SELECT titre, contenu
+									FROM Article AS a
+									JOIN Categorie AS c ON a.categorie = c.id
+									WHERE c.libelle = 'Education';");
 			?>
 		
 		<?php
@@ -168,16 +116,6 @@
 
 	function corps_politique() { 
 
-		require('connexion.php');
-
-		$articles = $bdd->prepare("SELECT titre, contenu
-										FROM Article AS a
-										JOIN Categorie AS c ON a.categorie = c.id
-										WHERE c.libelle = 'Politique';");
-		$articles->execute();
-
-		$result = $articles->fetchAll(PDO::FETCH_ASSOC);
-
 		?>
 		
 			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
@@ -185,14 +123,11 @@
 			<h1>Les actualités de la Politique</h1>
 
 			<?php
-				foreach ($result as $row) {
-				?>
-					<div class="paragraphe">
-						<h2><?=$row['titre'];?></h2>
-						<p><?=$row['contenu'];?></p>
-					</div>
-				<?php
-				}
+				require('contenu.php');
+				contenu_par_requete("SELECT titre, contenu
+									FROM Article AS a
+									JOIN Categorie AS c ON a.categorie = c.id
+									WHERE c.libelle = 'Politique';");
 			?>
 		
 		<?php
