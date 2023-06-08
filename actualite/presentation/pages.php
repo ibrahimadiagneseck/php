@@ -1,5 +1,7 @@
 <?php 
 
+	require('../controller/controller.php');
+
 	function accueil() { 
 
 		?>
@@ -7,7 +9,7 @@
 		<html>
 		<meta charset="utf-8">
 		<head>
-			<link rel="stylesheet" href="css/accueil.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="../css/accueil.css?v=<?php echo time(); ?>">
 			<title>Accueil</title>
 		</head>
 		<body>
@@ -42,13 +44,12 @@
 
 		?>
 		
-			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
 
 			<h1>Les dernières actualités</h1>
 
 			<?php
-				require('contenu.php');
-				contenu_par_requete('SELECT titre, contenu FROM actualite.article');
+				controller('SELECT titre, contenu FROM actualite.article');
 			?>
 		
 		<?php
@@ -59,13 +60,13 @@
 
 		?>
 		
-			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
 
 			<h1>Les actualités du Sport</h1>
 
 			<?php
-				require('contenu.php');
-				contenu_par_requete("SELECT titre, contenu FROM Article
+
+				controller("SELECT titre, contenu FROM Article
 									WHERE categorie = (SELECT id FROM Categorie WHERE libelle = 'Sport');");
 			?>
 		
@@ -77,13 +78,13 @@
 
 		?>
 		
-			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
 
 			<h1>Les actualités de la Santé</h1>
 
 			<?php
-				require('contenu.php');
-				contenu_par_requete("SELECT a.*
+
+				controller("SELECT a.*
 									FROM Article AS a
 									JOIN Categorie AS c ON a.categorie = c.id
 									WHERE c.libelle = 'Sante';");
@@ -98,13 +99,13 @@
 
 		?>
 		
-			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
 
 			<h1>Les actualités de l'Education</h1>
 
 			<?php
-				require('contenu.php');
-				contenu_par_requete("SELECT titre, contenu
+
+				controller("SELECT titre, contenu
 									FROM Article AS a
 									JOIN Categorie AS c ON a.categorie = c.id
 									WHERE c.libelle = 'Education';");
@@ -118,13 +119,13 @@
 
 		?>
 		
-			<link rel="stylesheet" href="css/corps.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
 
 			<h1>Les actualités de la Politique</h1>
 
 			<?php
-				require('contenu.php');
-				contenu_par_requete("SELECT titre, contenu
+
+				controller("SELECT titre, contenu
 									FROM Article AS a
 									JOIN Categorie AS c ON a.categorie = c.id
 									WHERE c.libelle = 'Politique';");
