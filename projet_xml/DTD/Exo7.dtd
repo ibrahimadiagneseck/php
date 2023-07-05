@@ -1,0 +1,31 @@
+<!ELEMENT portail (restaurants)>
+<!ELEMENT restaurants (restaurant*)>
+<!ELEMENT restaurant (fiche)>
+<!ELEMENT fiche (coordonnees,nom,adresse,nom_restaurateur,description_restaurant,carte,(menus|service))>
+
+<!ELEMENT coordonnees (#PCDATA)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT adresse (#PCDATA)>
+<!ELEMENT nom_restaurateur (#PCDATA)>
+<!ELEMENT description_restaurant (liste,paragraphe,(partie_importante|partie)*)>
+    <!ELEMENT liste (#PCDATA)>
+    <!ELEMENT paragraphe (#PCDATA|image)*>
+    <!ELEMENT image EMPTY>
+    <!ATTLIST image url (CDATA) #REQUIRED>
+    <!ENTITY position "(Gauche|Centre|Droite)">
+    <!ATTLIST image position (position) #REQUIRED>
+
+    <!ELEMENT partie (#PCDATA)>
+    <!ELEMENT partie_importante EMPTY >
+    <!ATTLIST partie_importante graphique ENTITY #IMPLIED>
+<!ELEMENT carte (plat+)>
+<!ELEMENT plat (nom,prix,description)>
+    <!ATTLIST plat partie (Plat|Entrée|Desert|Fromage) #REQUIRED>
+<!ELEMENT menus (menu+)>
+<!ELEMENT service (#PCDATA)>
+<!ATTLIST menus OrderBy (OrderByPrice | OrderByNumber) #REQUIRED>
+
+<!ELEMENT menu (titre,description,prix)>
+<!ELEMENT titre (#PCDATA)>
+<!ELEMENT description (paragraphe,(partie_importante|partie)*)>
+<!ELEMENT prix (#PCDATA)>

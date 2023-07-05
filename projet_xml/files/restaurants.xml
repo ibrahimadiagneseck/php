@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<portail>
+  <restaurants>
+    <restaurant>
+      <fiche>
+        <id>6</id>
+        <nom>fastfoot</nom>
+        <nom_restaurateur>ali diop</nom_restaurateur>
+        <addresse>fann</addresse>
+        <coordonnees>bp 552</coordonnees>
+        <description_restaurant>
+          <liste>liste1 </liste>
+          <paragraphe>bienvenue</paragraphe>
+          <partie>bienvenue</partie>
+        </description_restaurant>
+        <carte>
+          <plat>
+            <nom>yassa</nom>
+            <prix>1000</prix>
+            <description>
+              <paragraphe>Poulet</paragraphe>
+            </description>
+          </plat>
+        </carte>
+        <menus>
+          <menu>
+            <titre/>
+            <prix>12000</prix>
+            <description>
+              <paragraphe>bienvenue</paragraphe>
+            </description>
+          </menu>
+        </menus>
+        <adresse/>
+      </fiche>
+    </restaurant>
+    <restaurant>
+      <fiche>
+        <id>7</id>
+        <nom>fastfoot</nom>
+        <nom_restaurateur>ali</nom_restaurateur>
+        <addresse>fann</addresse>
+        <coordonnees>bp 552</coordonnees>
+        <description_restaurant>
+          <liste>liste1 </liste>
+          <paragraphe>bienvenue</paragraphe>
+          <partie>bienvenue</partie>
+        </description_restaurant>
+        <carte>
+          <plat>
+            <nom>yassa</nom>
+            <prix>1000</prix>
+            <description>
+              <paragraphe>Poulet</paragraphe>
+            </description>
+          </plat>
+        </carte>
+        <menus>
+          <menu>
+            <titre>yassa poulet</titre>
+            <prix>12000</prix>
+            <description>
+              <paragraphe>bienvenue</paragraphe>
+            </description>
+          </menu>
+        </menus>
+      </fiche>
+    </restaurant>
+    <restaurant>
+      <fiche>
+        <id>6</id>
+        <nom>fastfoot</nom>
+        <nom_restaurateur>ali</nom_restaurateur>
+        <addresse>fann</addresse>
+        <coordonnees>bp 552</coordonnees>
+        <description_restaurant>
+          <liste>liste1 </liste>
+          <paragraphe>bienvenue</paragraphe>
+          <partie>bienvenue</partie>
+        </description_restaurant>
+        <carte>
+          <plat>
+            <nom>yassa</nom>
+            <prix>1000</prix>
+            <description>
+              <paragraphe>Poulet</paragraphe>
+            </description>
+          </plat>
+        </carte>
+        <menus>
+          <menu>
+            <titre>yassa poulet</titre>
+            <prix>12000</prix>
+            <description>
+              <paragraphe>bienvenue</paragraphe>
+            </description>
+          </menu>
+        </menus>
+      </fiche>
+    </restaurant>
+  </restaurants>
+
+</portail>
