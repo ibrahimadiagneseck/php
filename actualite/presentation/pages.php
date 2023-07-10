@@ -14,25 +14,33 @@
 		</head>
 		<body>
 
-			<div id="entete">
-					<h1>ACTUALITES POLYTECHNICIENNES</h1>
-			</div>
+			<header>
+				<div id="entete">
+						<h1>ACTUALITES POLYTECHNICIENNES</h1>
+				</div>
+			</header>
 
-			<div id="menu">
-				<ul>
-					<li><a href="corps_accueil.php" target="zone">Accueil</a></li>
-					<li><a href="corps_sport.php" target="zone">Sport</a></li>
-					<li><a href="corps_sante.php" target="zone">Santé</a></li>
-					<li><a href="corps_education.php" target="zone">Education</a></li>
-					<li><a href="corps_politique.php" target="zone">Politique</a></li>
-				</ul>
-			</div>
-		
-				<iframe src="corps_accueil.php" id="corps" name="zone"></iframe>
+			<main>
+				<div id="menu">
+					<ul>
+						<li><a href="corps-accueil.php" target="zone">Accueil</a></li>
+						<li><a href="corps-sport.php" target="zone">Sport</a></li>
+						<li><a href="corps-sante.php" target="zone">Santé</a></li>
+						<li><a href="corps-education.php" target="zone">Education</a></li>
+						<li><a href="corps-politique.php" target="zone">Politique</a></li>
+					</ul>
+				</div>
+			
+					<iframe src="corps-accueil.php" id="corps" name="zone"></iframe>
+			</main>
 
-			<div id="pied">
-				copyright &copy; dgi 2023
-			</div>
+			<footer>
+				<div id="pied">
+					copyright &copy; dgi 2023
+				</div>
+			</footer>
+
+			
 
 		</body>
 		</html>
@@ -43,13 +51,10 @@
 	function corps_accueil() { 
 
 		?>
-		
-			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
-
-			<h1>Les dernières actualités</h1>
+			<h1 style="text-align: center;">Les dernières actualités</h1>
 
 			<?php
-				controller('SELECT titre, contenu FROM actualite.article');
+				controllerAccueil();
 			?>
 		
 		<?php
@@ -59,15 +64,10 @@
 	function corps_sport() { 
 
 		?>
-		
-			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
-
-			<h1>Les actualités du Sport</h1>
+			<h1 style="text-align: center;">Les actualités du Sport</h1>
 
 			<?php
-
-				controller("SELECT titre, contenu FROM Article
-									WHERE categorie = (SELECT id FROM Categorie WHERE libelle = 'Sport');");
+				controllerSport();
 			?>
 		
 		<?php
@@ -77,17 +77,10 @@
 	function corps_sante() { 
 
 		?>
-		
-			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
-
-			<h1>Les actualités de la Santé</h1>
+			<h1 style="text-align: center;">Les actualités de la Santé</h1>
 
 			<?php
-
-				controller("SELECT a.*
-									FROM Article AS a
-									JOIN Categorie AS c ON a.categorie = c.id
-									WHERE c.libelle = 'Sante';");
+				controllerSante();
 			?>
 		
 		<?php
@@ -98,17 +91,10 @@
 	function corps_education() { 
 
 		?>
-		
-			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
-
-			<h1>Les actualités de l'Education</h1>
+			<h1 style="text-align: center;">Les actualités de l'Education</h1>
 
 			<?php
-
-				controller("SELECT titre, contenu
-									FROM Article AS a
-									JOIN Categorie AS c ON a.categorie = c.id
-									WHERE c.libelle = 'Education';");
+				controllerEducation();
 			?>
 		
 		<?php
@@ -118,17 +104,10 @@
 	function corps_politique() { 
 
 		?>
-		
-			<link rel="stylesheet" href="../css/corps.css?v=<?php echo time(); ?>">
-
-			<h1>Les actualités de la Politique</h1>
+			<h1 style="text-align: center;">Les actualités de la Politique</h1>
 
 			<?php
-
-				controller("SELECT titre, contenu
-									FROM Article AS a
-									JOIN Categorie AS c ON a.categorie = c.id
-									WHERE c.libelle = 'Politique';");
+				controllerPolitique();
 			?>
 		
 		<?php
